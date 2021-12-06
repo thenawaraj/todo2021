@@ -1,0 +1,74 @@
+body{
+	font-family: 'Poppins','sans-serif';
+}
+
+nav{
+	height:60px;
+	padding:0 5vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo{
+	font-size:24px;
+	font-weight: bold
+}
+
+.bg-primary{
+	background: var(--primary-color);
+}
+.bg-secondary{
+	background: var(--primary-color);
+}
+.text-primary{
+	color: var(--primary-color);
+}
+.text-primary{
+	color: var(--primary-color);
+}
+
+.title{
+	font-size: var(--title-font-size);
+}
+
+
+/* buttons */
+.btn{
+	background:white;
+	border-radius: var(--xs);
+	padding: var(--sm) var(--lg);
+	transition: .3s;
+	border:none;
+}
+
+.btn:hover{
+	filter:brightness(.8);
+}
+.btn.primary{
+	background: var(--primary-color);
+	color:white;
+}
+
+.btn.secondary{
+	background: var(--secondary-color);
+	color:white;
+}
+
+.input-form{
+	padding:var(--xs) var(--md);
+	display: flex;
+	flex-direction: column;
+	border:1px solid rgba(0,0,0,0.32);
+}
+.input-form label{
+	font-size:11px;
+}
+.input-form input:focus{
+	outline:none;
+}
+.input-form input{
+
+	border:none;
+	background:transparent;
+}

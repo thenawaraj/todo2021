@@ -1,0 +1,19 @@
+:root{
+ --primary-color: coral;
+ --secondary-color: grey;
+ --success-color: green;
+ --danger-color: green;
+ --warning-color: green;
+ 
+ --xs: 4px;
+ --sm: 8px;
+ --md: 16px;
+ --lg: 24px;
+ --xl: 32px;
+ --xxl: 40px;
+
+ --title-font-size: 24px;
+ --sub-title-font-size: 18px;
+
+
+}

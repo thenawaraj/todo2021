@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./css/vars.css">
+	<link rel="stylesheet" type="text/css" href="./css/layout.css">
+	<link rel="stylesheet" type="text/css" href="./css/theme.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="side-margin">
+	<div class="logo">logo</div>
+</nav>
+<main>	
+<section class="flex side-margin">
+	<div class="form-area flex-1">
+		<div class="ma-lg">
+				<div class="title">
+			Add a task
+		</div>
+		<div class="input-form">
+			<label>Task title</label>
+			<input type="text" name="title" id="addInput">
+		</div>
+		<button class="btn primary my-md" onclick="addTask()">Add</button>
+		</div>
+
+				<div class="ma-lg">
+				<div class="title">
+			Edit a task
+		</div>
+		<div class="input-form">
+			<label>Task title</label>
+			<input type="text" name="title" id="editInput">
+		</div>
+		<button class="btn primary my-md" onclick="updateTask()">Save</button>
+		</div>
+	</div>
+	<div class="task-area flex-1 flex wrap">
+		
+	</div>
+</section>
+</main>
+</body>
+<script type="text/javascript">
+	let tasks = [
+		"This is task 1",
+		"This is task 2",
+		"This is task 3",
+		"This is task 4",
+		"This is task 5",
+		"This is task 12",
+	];
+	let selectedIndex= -1;
+	const getTasks=()=>{
+		document.querySelector('.task-area').innerHTML =null;
+		tasks.forEach((v,key)=>{
+		document.querySelector('.task-area').innerHTML +=`
+		<div class="task flex justify-between my-sm">
+			<div>${key+1}. ${v}</div>
+			<div class="task-actions">
+			<button class="btn secondary" onclick="selectTask(${key})">E</button>
+			<button class="btn primary" onclick="deleteTask(${key})">X</button>
+			</div>
+		</div>`; 
+		});
+	}
+
+	getTasks();
+
+	// add
+	const addTask=()=>{
+		let newTask = document.querySelector('#addInput').value;
+		if(newTask ===''){
+			alert('Task cannot be empty')
+		}else{
+		tasks.push(newTask);
+		getTasks();			
+		}
+	};
+	// update
+	const deleteTask= (id)=>{
+		tasks = tasks.filter((v,key)=>id!==key);
+		getTasks();
+	}
+	
+	const selectTask=(index)=>{
+		console.log(index);
+		selectedIndex = index;
+		document.querySelector('#editInput').value = tasks[index];
+	}
+
+	const updateTask = ()=>{
+		let editedTask = document.querySelector('#editInput').value;
+		tasks[selectedIndex] = editedTask;
+		getTasks();
+		document.querySelector('#editInput').value= null;
+		selectedIndex=-1;
+	}
+</script>
+</html>
